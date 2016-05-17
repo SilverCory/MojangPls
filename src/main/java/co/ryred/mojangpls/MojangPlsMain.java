@@ -63,6 +63,10 @@ public class MojangPlsMain {
 	private static File dotMinecraftDir;
 	private static String javaAgentProperty;
 
+	/**
+	 * Entry point.
+	 * @param args
+	 */
 	public static void main( String... args ) {
 
 		try {
@@ -116,6 +120,9 @@ public class MojangPlsMain {
 
 	}
 
+	/**
+	 * Downloads the bypasser, generates the javaagent argument, and checks the launcher is closed.
+	 */
 	private static void doDownloadEct() {
 		try {
 
@@ -162,6 +169,10 @@ public class MojangPlsMain {
 		}
 	}
 
+	/**
+	 * Process exceptions.
+	 * @param ex
+	 */
 	private static void doError( Exception ex ) {
 
 		JFrame errorFrame = new JFrame( "An error occurred!" );
@@ -173,6 +184,10 @@ public class MojangPlsMain {
 
 	}
 
+	/**
+	 * Called when the user confirms the launcher is closed.
+	 * Checks the appropriate files exist, and edits them to the desired effect.
+	 */
 	public static void launcherIsClosed() {
 		try {
 			File profilesFile = new File( dotMinecraftDir, "launcher_profiles.json" );
@@ -250,6 +265,10 @@ public class MojangPlsMain {
 		}
 	}
 
+	/**
+	 * Used when backing up the profiles.
+	 * @return
+	 */
 	public static String getCurrentTimeStamp() {
 		return new SimpleDateFormat( "yyyy-MM-dd_HH-mm-ss" ).format( new Date() );
 	}
