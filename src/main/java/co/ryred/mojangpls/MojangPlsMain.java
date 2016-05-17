@@ -62,7 +62,6 @@ public class MojangPlsMain {
 
 	private static File dotMinecraftDir;
 	private static String javaAgentProperty;
-	private static JTextField dir = new JTextField();
 
 	public static void main( String... args ) {
 
