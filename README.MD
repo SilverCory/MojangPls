@@ -4,6 +4,8 @@
 
 [![Build Status](http://ci.ac3-servers.eu/job/MojangPls/badge/icon)](http://ci.ac3-servers.eu/job/MojangPls/)
 
+[Download here!](http://ci.ac3-servers.eu/job/MojangPls/lastSuccessfulBuild/artifact/target/MojangPls.jar)
+
 ----
 
 To use this, simply download, run, and if it asks, select your .minecraft folder..
