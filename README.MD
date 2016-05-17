@@ -8,7 +8,7 @@
 
 ----
 
-To use this, simply download, run, and if it asks, select your .minecraft folder..
+To use this, simply download, run.. if it asks, select your .minecraft folder.. This requires Java 6 or higher..
 
 **Make sure the Minecraft launcher is closed before using this!**
 
