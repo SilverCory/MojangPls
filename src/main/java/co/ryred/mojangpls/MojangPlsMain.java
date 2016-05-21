@@ -37,6 +37,7 @@ package co.ryred.mojangpls;
 
 import com.google.gson.*;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -259,7 +260,10 @@ public class MojangPlsMain {
 
 			final JFrame jFrame = new JFrame( "LIBERTY!" );
 			jFrame.setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
+			jFrame.setLayout( new GridLayout( 2, 1 ) );
 			jFrame.add( new JLabel( "<html><h1>LIBERTY!</h1></html>" ) );
+			ImageIcon icon = new ImageIcon( ImageIO.read( MojangPlsMain.class.getResourceAsStream( "/liberty.png" ) ) );
+			jFrame.add( new JLabel( icon ) );
 			jFrame.pack();
 			jFrame.setVisible( true );
 
@@ -267,7 +271,7 @@ public class MojangPlsMain {
 				@Override
 				public void run() {
 					try {
-						Thread.sleep( 6000L );
+						Thread.sleep( 15000L );
 						jFrame.dispose();
 						System.exit( 0 );
 					} catch ( InterruptedException e ) {
