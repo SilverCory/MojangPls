@@ -235,7 +235,7 @@ public class MojangPlsMain {
 					if ( profileObject.has( "javaArgs" ) ) {
 
 						String javaArgs = profileObject.getAsJsonPrimitive( "javaArgs" ).getAsString();
-						if ( javaArgs.toUpperCase().contains( "-javaagent:".toUpperCase() ) ) {
+						if ( javaArgs.toUpperCase().contains( "-javaagent:".toUpperCase() ) || javaArgs.contains( "-DMojangPls" ) ) {
 
 							// TODO replace javaagent?
 
