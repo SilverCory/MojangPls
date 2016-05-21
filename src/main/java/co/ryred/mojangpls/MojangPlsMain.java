@@ -81,33 +81,7 @@ public class MojangPlsMain {
 
 			System.out.println( dotMinecraftDir.getAbsolutePath() );
 			if ( !dotMinecraftDir.exists() || !dotMinecraftDir.isDirectory() ) {
-
-				final JFrame fileChooser = new JFrame( "Please select your .minecraft folder." );
-				fileChooser.getContentPane().setLayout( new GridLayout( 2, 1 ) );
-				fileChooser.add( new JLabel( "<html><h3>Please select your .minecraft folder...</h3></html>" ) );
-				JButton okayButton = new JButton( "Okay" );
-				okayButton.addActionListener( new ActionListener() {
-					@Override
-					public void actionPerformed( ActionEvent e ) {
-						JFileChooser c = new JFileChooser();
-						c.setFileSelectionMode( JFileChooser.DIRECTORIES_ONLY );
-						int rVal = c.showOpenDialog( fileChooser );
-						if ( rVal == JFileChooser.APPROVE_OPTION ) {
-							dotMinecraftDir = c.getSelectedFile();
-							fileChooser.dispose();
-							doDownloadEct();
-						}
-						if ( rVal == JFileChooser.CANCEL_OPTION ) {
-							fileChooser.dispose();
-							System.exit( 0 );
-						}
-					}
-				} );
-				fileChooser.add( okayButton );
-				fileChooser.setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
-				fileChooser.pack();
-				fileChooser.setVisible( true );
-
+				selectMinecraftFolder();
 			} else {
 				doDownloadEct();
 			}
@@ -117,6 +91,36 @@ public class MojangPlsMain {
 			ex.printStackTrace();
 		}
 
+
+	}
+
+	private static void selectMinecraftFolder() {
+
+		final JFrame fileChooser = new JFrame( "Please select your .minecraft folder." );
+		fileChooser.getContentPane().setLayout( new GridLayout( 2, 1 ) );
+		fileChooser.add( new JLabel( "<html><h3>Please select your .minecraft folder...</h3></html>" ) );
+		JButton okayButton = new JButton( "Okay" );
+		okayButton.addActionListener( new ActionListener() {
+			@Override
+			public void actionPerformed( ActionEvent e ) {
+				JFileChooser c = new JFileChooser();
+				c.setFileSelectionMode( JFileChooser.DIRECTORIES_ONLY );
+				int rVal = c.showOpenDialog( fileChooser );
+				if ( rVal == JFileChooser.APPROVE_OPTION ) {
+					dotMinecraftDir = c.getSelectedFile();
+					fileChooser.dispose();
+					doDownloadEct();
+				}
+				if ( rVal == JFileChooser.CANCEL_OPTION ) {
+					fileChooser.dispose();
+					System.exit( 0 );
+				}
+			}
+		} );
+		fileChooser.add( okayButton );
+		fileChooser.setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
+		fileChooser.pack();
+		fileChooser.setVisible( true );
 
 	}
 
@@ -138,6 +142,7 @@ public class MojangPlsMain {
 
 			final JFrame checkClosedFrame = new JFrame( "Is the launcher closed?!" );
 			JLabel label = new JLabel( "<html><h3>Please make sure the Minecraft launcher is closed! Click okay when it is..</h3></html>" );
+
 			JButton okayButton = new JButton( "Okay" );
 			okayButton.addActionListener( new ActionListener() {
 				@Override
@@ -146,6 +151,7 @@ public class MojangPlsMain {
 					launcherIsClosed();
 				}
 			} );
+
 			JButton cancelButton = new JButton( "Actually..." );
 			cancelButton.addActionListener( new ActionListener() {
 				@Override
@@ -154,9 +160,19 @@ public class MojangPlsMain {
 					System.exit( 0 );
 				}
 			} );
+
+			JButton selectButton = new JButton( "Select mc folder." );
+			selectButton.addActionListener( new ActionListener() {
+				@Override
+				public void actionPerformed( ActionEvent e ) {
+					checkClosedFrame.dispose();
+					selectMinecraftFolder();
+				}
+			} );
+
 			checkClosedFrame.getContentPane().setLayout( new GridLayout( 2, 2 ) );
 			checkClosedFrame.add( label );
-			checkClosedFrame.add( new Label() );
+			checkClosedFrame.add( selectButton );
 			checkClosedFrame.add( okayButton );
 			checkClosedFrame.add( cancelButton );
 			checkClosedFrame.setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
