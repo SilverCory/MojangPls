@@ -14,7 +14,8 @@ To use this, simply download, run.. if it asks, select your .minecraft folder.. 
 
 ----
 
-Video coming soon.
+Here's a small and **very short** video guide.
+https://youtu.be/V9ZnTUvJ4Vw
 
 ----
 
